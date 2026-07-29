@@ -773,19 +773,19 @@ export const LeagueTab: React.FC = () => {
 
             <div className="modal-body-squad">
               {/* Score banner */}
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', background: 'rgba(15, 23, 42, 0.7)', padding: '1rem', borderRadius: '12px', border: '1px solid var(--border-color)' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', background: '#fef08a', padding: '1rem', borderRadius: '12px', border: '2px solid #18181b', boxShadow: '2px 2px 0px #18181b', color: '#18181b' }}>
                 <div style={{ textAlign: 'center' }}>
-                  <div style={{ fontWeight: 800, fontSize: '1rem' }}>{clubs.find(c => c.id === selectedMatchDetail.homeTeamId)?.name}</div>
-                  <div style={{ fontSize: '0.72rem', color: 'var(--text-secondary)' }}>Local</div>
+                  <div style={{ fontWeight: 800, fontSize: '1.05rem', fontFamily: "'Kalam', cursive" }}>{clubs.find(c => c.id === selectedMatchDetail.homeTeamId)?.name}</div>
+                  <div style={{ fontSize: '0.75rem', color: '#52525b', fontWeight: 800 }}>Local</div>
                 </div>
 
-                <div style={{ fontFamily: 'var(--font-heading)', fontSize: '2rem', fontWeight: 900, color: '#f59e0b' }}>
+                <div style={{ fontFamily: "'Kalam', cursive", fontSize: '2.2rem', fontWeight: 900, color: '#18181b' }}>
                   {selectedMatchDetail.homeScore} - {selectedMatchDetail.awayScore}
                 </div>
 
                 <div style={{ textAlign: 'center' }}>
-                  <div style={{ fontWeight: 800, fontSize: '1rem' }}>{clubs.find(c => c.id === selectedMatchDetail.awayTeamId)?.name}</div>
-                  <div style={{ fontSize: '0.72rem', color: 'var(--text-secondary)' }}>Visitante</div>
+                  <div style={{ fontWeight: 800, fontSize: '1.05rem', fontFamily: "'Kalam', cursive" }}>{clubs.find(c => c.id === selectedMatchDetail.awayTeamId)?.name}</div>
+                  <div style={{ fontSize: '0.75rem', color: '#52525b', fontWeight: 800 }}>Visitante</div>
                 </div>
               </div>
 

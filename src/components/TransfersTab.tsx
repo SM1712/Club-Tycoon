@@ -126,20 +126,20 @@ export const TransfersTab: React.FC = () => {
     switch (willingness.status) {
       case 'HIGH':
         return (
-          <span style={{ background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.3))', border: '1px solid rgba(16, 185, 129, 0.4)', color: '#34d399', padding: '4px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '4px' }} title={willingness.reason}>
+          <span style={{ background: '#dcfce7', border: '1px solid #18181b', color: '#15803d', padding: '3px 9px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: 800, display: 'inline-flex', alignItems: 'center', gap: '4px' }} title={willingness.reason}>
             🟢 {willingness.label}
           </span>
         );
       case 'MEDIUM':
         return (
-          <span style={{ background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(217, 119, 6, 0.3))', border: '1px solid rgba(245, 158, 11, 0.4)', color: '#fbbf24', padding: '4px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '4px' }} title={willingness.reason}>
+          <span style={{ background: '#fef3c7', border: '1px solid #18181b', color: '#b45309', padding: '3px 9px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: 800, display: 'inline-flex', alignItems: 'center', gap: '4px' }} title={willingness.reason}>
             🟡 {willingness.label}
           </span>
         );
       case 'REFUSE':
       default:
         return (
-          <span style={{ background: 'linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(185, 28, 28, 0.3))', border: '1px solid rgba(239, 68, 68, 0.4)', color: '#f87171', padding: '4px 10px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '4px' }} title={willingness.reason}>
+          <span style={{ background: '#fee2e2', border: '1px solid #18181b', color: '#b91c1c', padding: '3px 9px', borderRadius: '12px', fontSize: '0.75rem', fontWeight: 800, display: 'inline-flex', alignItems: 'center', gap: '4px' }} title={willingness.reason}>
             🔴 {willingness.label}
           </span>
         );
@@ -147,30 +147,25 @@ export const TransfersTab: React.FC = () => {
   };
 
   const renderPositionBadge = (pos: Position) => {
-    let bg = 'rgba(59, 130, 246, 0.18)';
-    let border = 'rgba(59, 130, 246, 0.35)';
-    let color = '#60a5fa';
+    let bg = '#dbeafe';
+    let color = '#1d4ed8';
 
     if (pos === 'POR') {
-      bg = 'rgba(245, 158, 11, 0.18)';
-      border = 'rgba(245, 158, 11, 0.35)';
-      color = '#fbbf24';
+      bg = '#fef3c7';
+      color = '#b45309';
     } else if (['DFC', 'LI', 'LD'].includes(pos)) {
-      bg = 'rgba(59, 130, 246, 0.18)';
-      border = 'rgba(59, 130, 246, 0.35)';
-      color = '#60a5fa';
+      bg = '#dbeafe';
+      color = '#1d4ed8';
     } else if (['MCD', 'MC', 'MCO'].includes(pos)) {
-      bg = 'rgba(16, 185, 129, 0.18)';
-      border = 'rgba(16, 185, 129, 0.35)';
-      color = '#34d399';
+      bg = '#dcfce7';
+      color = '#15803d';
     } else if (['EI', 'ED', 'DC'].includes(pos)) {
-      bg = 'rgba(239, 68, 68, 0.18)';
-      border = 'rgba(239, 68, 68, 0.35)';
-      color = '#f87171';
+      bg = '#fee2e2';
+      color = '#b91c1c';
     }
 
     return (
-      <span style={{ background: bg, border: `1px solid ${border}`, color: color, padding: '3px 8px', borderRadius: '6px', fontSize: '0.72rem', fontWeight: 800 }}>
+      <span style={{ background: bg, border: '1px solid #18181b', color: color, padding: '2px 7px', borderRadius: '5px', fontSize: '0.72rem', fontWeight: 800 }}>
         {pos}
       </span>
     );
@@ -372,14 +367,14 @@ export const TransfersTab: React.FC = () => {
           </div>
 
           {/* PROACTIVE DT SCOUTING RECOMMENDATIONS */}
-          <div className="card" style={{ padding: '1.5rem', borderRadius: '14px' }}>
-            <h3 style={{ fontSize: '1.15rem', marginBottom: '1.25rem', display: 'flex', alignItems: 'center', gap: '8px', color: '#f8fafc' }}>
-              <Sparkles size={20} color="#10b981" />
+          <div className="card" style={{ background: '#ffffff', border: '2px solid #18181b', padding: '1.25rem 1.5rem', borderRadius: '14px', boxShadow: '2.5px 3px 0px #18181b' }}>
+            <h3 style={{ fontSize: '1.15rem', marginBottom: '1.25rem', display: 'flex', alignItems: 'center', gap: '8px', color: '#18181b', fontFamily: "'Kalam', cursive", fontWeight: 800 }}>
+              <Sparkles size={20} color="#16a34a" />
               Recomendaciones del DT para {currentDiv?.name || 'tu categoría'}
             </h3>
 
             {dtRecommendations.length === 0 ? (
-              <div className="no-data" style={{ padding: '2.5rem', textAlign: 'center', color: '#94a3b8' }}>
+              <div className="no-data" style={{ padding: '2.5rem', textAlign: 'center', color: '#52525b', fontFamily: "'Patrick Hand', cursive" }}>
                 El DT no ha encontrado objetivos compatibles dentro de tu presupuesto asignado. Incrementa el Fondo Delegado al DT en Finanzas para liberar opciones.
               </div>
             ) : (
@@ -390,12 +385,12 @@ export const TransfersTab: React.FC = () => {
                   const isFree = target.clubId === '';
 
                   return (
-                    <div key={idx} style={{ background: 'rgba(15, 23, 42, 0.8)', border: '1px solid rgba(59, 130, 246, 0.25)', borderRadius: '12px', padding: '1.25rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '0 4px 16px rgba(0,0,0,0.2)' }}>
+                    <div key={idx} style={{ background: '#ffffff', border: '2px solid #18181b', borderRadius: '12px', padding: '1.25rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', boxShadow: '2.5px 3px 0px #18181b' }}>
                       <div>
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '10px' }}>
                           <div>
-                            <h4 style={{ margin: 0, fontSize: '1.15rem', color: '#f8fafc', fontWeight: 700 }}>{target.name}</h4>
-                            <div style={{ fontSize: '0.82rem', color: '#94a3b8', marginTop: '3px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                            <h4 style={{ margin: 0, fontSize: '1.15rem', color: '#18181b', fontWeight: 800, fontFamily: "'Kalam', cursive" }}>{target.name}</h4>
+                            <div style={{ fontSize: '0.82rem', color: '#52525b', marginTop: '3px', display: 'flex', alignItems: 'center', gap: '6px', fontWeight: 700 }}>
                               {renderPositionBadge(target.position)}
                               <span>{target.age} años</span> • <span>Pot: {target.potential}</span>
                             </div>
@@ -406,18 +401,18 @@ export const TransfersTab: React.FC = () => {
                           </div>
                         </div>
 
-                        <p style={{ fontSize: '0.82rem', color: '#cbd5e1', background: 'rgba(255,255,255,0.04)', padding: '10px 12px', borderRadius: '8px', margin: '10px 0 14px 0', borderLeft: '3px solid #3b82f6', lineHeight: 1.4 }}>
+                        <p style={{ fontSize: '0.85rem', color: '#3f3f46', background: '#faf7f2', padding: '10px 12px', borderRadius: '8px', margin: '10px 0 14px 0', border: '1.5px solid #18181b', lineHeight: 1.4, fontFamily: "'Patrick Hand', cursive" }}>
                           "{rec.reason}"
                         </p>
 
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', fontSize: '0.85rem', marginBottom: '1.2rem', background: 'rgba(0,0,0,0.2)', padding: '10px', borderRadius: '8px' }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px', fontSize: '0.85rem', marginBottom: '1.2rem', background: '#fef08a', border: '1.5px solid #18181b', padding: '10px', borderRadius: '8px' }}>
                           <div>
-                            <span style={{ color: '#94a3b8', fontSize: '0.75rem' }}>Traspaso Estimado:</span><br />
-                            <strong style={{ color: isFree ? '#34d399' : '#f8fafc', fontSize: '0.95rem' }}>{isFree ? 'Agente Libre (€0)' : formatCurr(rec.fee)}</strong>
+                            <span style={{ color: '#52525b', fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase' }}>Traspaso Estimado:</span><br />
+                            <strong style={{ color: isFree ? '#15803d' : '#18181b', fontSize: '0.95rem', fontFamily: "'Kalam', cursive" }}>{isFree ? 'Agente Libre (€0)' : formatCurr(rec.fee)}</strong>
                           </div>
                           <div>
-                            <span style={{ color: '#94a3b8', fontSize: '0.75rem' }}>Ficha Solicitada:</span><br />
-                            <strong style={{ fontSize: '0.95rem', color: '#f8fafc' }}>{formatCurr(rec.salary)}/año</strong>
+                            <span style={{ color: '#52525b', fontSize: '0.75rem', fontWeight: 800, textTransform: 'uppercase' }}>Ficha Solicitada:</span><br />
+                            <strong style={{ fontSize: '0.95rem', color: '#18181b', fontFamily: "'Kalam', cursive" }}>{formatCurr(rec.salary)}/año</strong>
                           </div>
                         </div>
                       </div>
@@ -425,7 +420,7 @@ export const TransfersTab: React.FC = () => {
                       <button
                         className="btn btn-primary btn-sm btn-full"
                         onClick={() => handleOpenOfferModal(target)}
-                        style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', padding: '10px', fontWeight: 700, borderRadius: '8px' }}
+                        style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', padding: '10px', fontWeight: 800, borderRadius: '8px', background: '#fef08a', color: '#18181b', border: '1.5px solid #18181b', boxShadow: '1.5px 1.5px 0px #18181b' }}
                       >
                         <Send size={15} /> Iniciar Negociación del DT
                       </button>
@@ -442,34 +437,34 @@ export const TransfersTab: React.FC = () => {
       {activeSubTab === 'MARKET' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
           {/* FILTERS PANEL */}
-          <div className="card" style={{ padding: '1.35rem', borderRadius: '14px', border: '1px solid rgba(59, 130, 246, 0.2)' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '1.25rem', fontWeight: 700, color: '#f8fafc', fontSize: '1.05rem' }}>
-              <SlidersHorizontal size={18} className="text-primary" />
+          <div className="card" style={{ background: '#ffffff', border: '2px solid #18181b', padding: '1.35rem', borderRadius: '14px', boxShadow: '2.5px 3px 0px #18181b' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '1.25rem', fontWeight: 800, color: '#18181b', fontSize: '1.1rem', fontFamily: "'Kalam', cursive" }}>
+              <SlidersHorizontal size={18} color="#2563eb" />
               Filtros y Búsqueda Avanzada de Jugadores
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.25rem' }}>
               {/* Search input */}
               <div>
-                <label style={{ fontSize: '0.78rem', color: '#94a3b8', display: 'block', marginBottom: '6px', fontWeight: 600 }}>Buscar por nombre</label>
+                <label style={{ fontSize: '0.78rem', color: '#52525b', display: 'block', marginBottom: '6px', fontWeight: 800 }}>Buscar por nombre</label>
                 <input
                   type="text"
                   placeholder="Ej: Saviola, Mbappé..."
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
                   className="search-input"
-                  style={{ width: '100%' }}
+                  style={{ width: '100%', border: '1.5px solid #18181b', borderRadius: '8px', padding: '0.4rem 0.75rem', fontWeight: 700, color: '#18181b' }}
                 />
               </div>
 
               {/* Position filter */}
               <div>
-                <label style={{ fontSize: '0.78rem', color: '#94a3b8', display: 'block', marginBottom: '6px', fontWeight: 600 }}>Posición</label>
+                <label style={{ fontSize: '0.78rem', color: '#52525b', display: 'block', marginBottom: '6px', fontWeight: 800 }}>Posición</label>
                 <select
                   value={positionFilter}
                   onChange={e => setPositionFilter(e.target.value)}
                   className="search-input"
-                  style={{ width: '100%', background: 'var(--bg-input)' }}
+                  style={{ width: '100%', background: '#ffffff', border: '1.5px solid #18181b', borderRadius: '8px', padding: '0.4rem 0.75rem', fontWeight: 700, color: '#18181b' }}
                 >
                   <option value="ALL">Todas las posiciones</option>
                   <option value="POR">Porteros (POR)</option>
@@ -488,8 +483,8 @@ export const TransfersTab: React.FC = () => {
               {/* Max price filter slider */}
               <div>
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
-                  <label style={{ fontSize: '0.78rem', color: '#94a3b8', fontWeight: 600 }}>Precio Máximo de Traspaso</label>
-                  <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#3b82f6' }}>{formatCurr(maxPriceFilter)}</span>
+                  <label style={{ fontSize: '0.78rem', color: '#52525b', fontWeight: 800 }}>Precio Máximo de Traspaso</label>
+                  <span style={{ fontSize: '0.85rem', fontWeight: 800, color: '#2563eb', fontFamily: "'Kalam', cursive" }}>{formatCurr(maxPriceFilter)}</span>
                 </div>
                 <input
                   type="range"
@@ -498,14 +493,14 @@ export const TransfersTab: React.FC = () => {
                   step={250000}
                   value={maxPriceFilter}
                   onChange={e => setMaxPriceFilter(Number(e.target.value))}
-                  style={{ width: '100%', accentColor: '#3b82f6', cursor: 'pointer' }}
+                  style={{ width: '100%', accentColor: '#2563eb', cursor: 'pointer' }}
                 />
               </div>
             </div>
 
             {/* QUICK PRESETS */}
-            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: '1rem', paddingTop: '0.85rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
-              <span style={{ fontSize: '0.75rem', color: '#94a3b8', alignSelf: 'center', marginRight: '4px', fontWeight: 600 }}>Ajuste Rápido:</span>
+            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginTop: '1rem', paddingTop: '0.85rem', borderTop: '1.5px solid #18181b' }}>
+              <span style={{ fontSize: '0.78rem', color: '#52525b', alignSelf: 'center', marginRight: '4px', fontWeight: 800 }}>Ajuste Rápido:</span>
 
               <button
                 type="button"
@@ -514,6 +509,17 @@ export const TransfersTab: React.FC = () => {
                   setOnlyFreeAgents(false);
                   setMaxPriceFilter(180000000);
                   setOnlyAffordable(false);
+                }}
+                style={{
+                  padding: '4px 12px',
+                  borderRadius: '6px',
+                  border: '1.5px solid #18181b',
+                  fontWeight: 800,
+                  fontSize: '0.78rem',
+                  cursor: 'pointer',
+                  background: (!onlyFreeAgents && maxPriceFilter >= 150000000) ? '#2563eb' : '#ffffff',
+                  color: (!onlyFreeAgents && maxPriceFilter >= 150000000) ? '#ffffff' : '#18181b',
+                  boxShadow: (!onlyFreeAgents && maxPriceFilter >= 150000000) ? '1.5px 1.5px 0px #18181b' : 'none'
                 }}
               >
                 Todos
@@ -526,6 +532,17 @@ export const TransfersTab: React.FC = () => {
                   setOnlyFreeAgents(true);
                   setOnlyAffordable(false);
                 }}
+                style={{
+                  padding: '4px 12px',
+                  borderRadius: '6px',
+                  border: '1.5px solid #18181b',
+                  fontWeight: 800,
+                  fontSize: '0.78rem',
+                  cursor: 'pointer',
+                  background: onlyFreeAgents ? '#2563eb' : '#ffffff',
+                  color: onlyFreeAgents ? '#ffffff' : '#18181b',
+                  boxShadow: onlyFreeAgents ? '1.5px 1.5px 0px #18181b' : 'none'
+                }}
               >
                 ⚽ Libres (€0)
               </button>
@@ -536,6 +553,16 @@ export const TransfersTab: React.FC = () => {
                 onClick={() => {
                   setOnlyFreeAgents(false);
                   setMaxPriceFilter(500000);
+                }}
+                style={{
+                  padding: '4px 12px',
+                  borderRadius: '6px',
+                  border: '1.5px solid #18181b',
+                  fontWeight: 800,
+                  fontSize: '0.78rem',
+                  cursor: 'pointer',
+                  background: '#ffffff',
+                  color: '#18181b'
                 }}
               >
                 💎 Económicos (&lt; €500k)
@@ -548,16 +575,26 @@ export const TransfersTab: React.FC = () => {
                   setOnlyFreeAgents(false);
                   setMaxPriceFilter(5000000);
                 }}
+                style={{
+                  padding: '4px 12px',
+                  borderRadius: '6px',
+                  border: '1.5px solid #18181b',
+                  fontWeight: 800,
+                  fontSize: '0.78rem',
+                  cursor: 'pointer',
+                  background: '#ffffff',
+                  color: '#18181b'
+                }}
               >
                 🚀 Nivel Medio (&lt; €5M)
               </button>
             </div>
 
             {/* Checkbox filters */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', marginTop: '0.85rem', fontSize: '0.85rem', color: '#cbd5e1' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem', marginTop: '0.85rem', fontSize: '0.82rem', color: '#3f3f46', fontWeight: 700 }}>
               <label style={{ display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer' }}>
                 <input type="checkbox" checked={onlySuitableForDiv} onChange={e => setOnlySuitableForDiv(e.target.checked)} />
-                <span>Ocultar Inalcanzables (Filtrar nivel de <strong>{currentDiv?.name || 'mi división'}</strong>)</span>
+                <span>Ocultar Inalcanzables (Filtrar nivel de <strong style={{ color: '#18181b' }}>{currentDiv?.name || 'mi división'}</strong>)</span>
               </label>
 
               <label style={{ display: 'flex', alignItems: 'center', gap: '6px', cursor: 'pointer' }}>
@@ -568,31 +605,31 @@ export const TransfersTab: React.FC = () => {
           </div>
 
           {/* MARKET TABLE */}
-          <div className="card" style={{ borderRadius: '14px', overflow: 'hidden' }}>
-            <div style={{ padding: '1rem 1.25rem', borderBottom: '1px solid rgba(255,255,255,0.08)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: 'rgba(15, 23, 42, 0.4)' }}>
-              <span style={{ fontWeight: 700, fontSize: '0.9rem', color: '#94a3b8' }}>
-                Resultados del mercado: <strong style={{ color: '#f8fafc' }}>{filteredMarketPlayers.length}</strong> futbolistas disponibles
+          <div className="card" style={{ background: '#ffffff', border: '2px solid #18181b', borderRadius: '14px', overflow: 'hidden', boxShadow: '2.5px 3px 0px #18181b' }}>
+            <div style={{ padding: '0.85rem 1.25rem', borderBottom: '2px solid #18181b', display: 'flex', justifyContent: 'space-between', alignItems: 'center', background: '#fef08a' }}>
+              <span style={{ fontWeight: 800, fontSize: '0.92rem', color: '#18181b', fontFamily: "'Kalam', cursive" }}>
+                Resultados del mercado: <strong style={{ color: '#2563eb' }}>{filteredMarketPlayers.length}</strong> futbolistas disponibles
               </span>
             </div>
 
             <div className="table-responsive max-h-500">
-              <table className="data-table">
+              <table className="data-table" style={{ width: '100%', borderCollapse: 'collapse' }}>
                 <thead>
-                  <tr>
-                    <th>Jugador</th>
-                    <th>Club Actual</th>
-                    <th>Pos</th>
-                    <th>Edad</th>
-                    <th>OVR</th>
-                    <th>Valor</th>
-                    <th>Disposición</th>
-                    <th>Acción</th>
+                  <tr style={{ background: '#faf7f2', borderBottom: '1.5px solid #18181b' }}>
+                    <th style={{ color: '#18181b', fontWeight: 800, padding: '0.65rem 0.85rem', textAlign: 'left' }}>Jugador</th>
+                    <th style={{ color: '#18181b', fontWeight: 800, padding: '0.65rem 0.85rem', textAlign: 'left' }}>Club Actual</th>
+                    <th style={{ color: '#18181b', fontWeight: 800, padding: '0.65rem 0.85rem', textAlign: 'left' }}>Pos</th>
+                    <th style={{ color: '#18181b', fontWeight: 800, padding: '0.65rem 0.85rem', textAlign: 'left' }}>Edad</th>
+                    <th style={{ color: '#18181b', fontWeight: 800, padding: '0.65rem 0.85rem', textAlign: 'left' }}>OVR</th>
+                    <th style={{ color: '#18181b', fontWeight: 800, padding: '0.65rem 0.85rem', textAlign: 'left' }}>Valor</th>
+                    <th style={{ color: '#18181b', fontWeight: 800, padding: '0.65rem 0.85rem', textAlign: 'left' }}>Disposición</th>
+                    <th style={{ color: '#18181b', fontWeight: 800, padding: '0.65rem 0.85rem', textAlign: 'left' }}>Acción</th>
                   </tr>
                 </thead>
                 <tbody>
                   {filteredMarketPlayers.length === 0 ? (
                     <tr>
-                      <td colSpan={8} style={{ textAlign: 'center', padding: '2.5rem', color: '#94a3b8' }}>
+                      <td colSpan={8} style={{ textAlign: 'center', padding: '2.5rem', color: '#52525b', fontFamily: "'Patrick Hand', cursive", fontSize: '0.95rem' }}>
                         No se encontraron jugadores que coincidan con los filtros aplicados.
                       </td>
                     </tr>
@@ -603,24 +640,24 @@ export const TransfersTab: React.FC = () => {
                       const isFree = player.clubId === '';
 
                       return (
-                        <tr key={player.id}>
-                          <td>
-                            <strong style={{ color: '#f8fafc', fontSize: '0.92rem' }}>{player.name}</strong>
-                            {player.isYouthTalent && <span style={{ marginLeft: '6px', fontSize: '0.7rem', background: '#3b82f6', color: '#fff', padding: '1px 6px', borderRadius: '4px', fontWeight: 700 }}>Cantera</span>}
+                        <tr key={player.id} style={{ borderBottom: '1px solid #e4e4e7' }}>
+                          <td style={{ padding: '0.6rem 0.85rem' }}>
+                            <strong style={{ color: '#18181b', fontSize: '0.92rem', fontFamily: "'Kalam', cursive", fontWeight: 800 }}>{player.name}</strong>
+                            {player.isYouthTalent && <span style={{ marginLeft: '6px', fontSize: '0.7rem', background: '#dbeafe', color: '#1d4ed8', border: '1px solid #18181b', padding: '1px 6px', borderRadius: '4px', fontWeight: 800 }}>Cantera</span>}
                           </td>
-                          <td>{isFree ? <span style={{ color: '#34d399', fontWeight: 700 }}>Sin Club (Agente Libre)</span> : (club ? club.shortName : 'Club Rival')}</td>
-                          <td>{renderPositionBadge(player.position)}</td>
-                          <td>{player.age}</td>
-                          <td>{renderOvrBadge(player.ovr)}</td>
-                          <td>{isFree ? <strong style={{ color: '#34d399' }}>€0 (Libre)</strong> : formatCurr(player.value)}</td>
-                          <td>{renderWillingnessBadge(willingness)}</td>
-                          <td>
+                          <td style={{ color: '#18181b', fontWeight: 700, padding: '0.6rem 0.85rem' }}>{isFree ? <span style={{ color: '#15803d', fontWeight: 800 }}>Sin Club (Agente Libre)</span> : (club ? club.shortName : 'Club Rival')}</td>
+                          <td style={{ padding: '0.6rem 0.85rem' }}>{renderPositionBadge(player.position)}</td>
+                          <td style={{ color: '#18181b', fontWeight: 700, padding: '0.6rem 0.85rem' }}>{player.age}</td>
+                          <td style={{ padding: '0.6rem 0.85rem' }}>{renderOvrBadge(player.ovr)}</td>
+                          <td style={{ padding: '0.6rem 0.85rem' }}>{isFree ? <strong style={{ color: '#15803d' }}>€0 (Libre)</strong> : <strong style={{ color: '#18181b', fontFamily: "'Kalam', cursive" }}>{formatCurr(player.value)}</strong>}</td>
+                          <td style={{ padding: '0.6rem 0.85rem' }}>{renderWillingnessBadge(willingness)}</td>
+                          <td style={{ padding: '0.6rem 0.85rem' }}>
                             {willingness.status === 'REFUSE' ? (
-                              <button className="btn btn-outline btn-sm" disabled style={{ opacity: 0.4, cursor: 'not-allowed' }}>
+                              <button className="btn btn-outline btn-sm" disabled style={{ opacity: 0.6, cursor: 'not-allowed', background: '#f4f4f5', border: '1px solid #18181b', color: '#71717a', padding: '3px 8px', borderRadius: '6px', fontWeight: 700, fontSize: '0.75rem' }}>
                                 No Interesado
                               </button>
                             ) : (
-                              <button className="btn btn-primary btn-sm" onClick={() => handleOpenOfferModal(player)} style={{ fontWeight: 700 }}>
+                              <button className="btn btn-primary btn-sm" onClick={() => handleOpenOfferModal(player)} style={{ fontWeight: 800, background: '#fef08a', color: '#18181b', border: '1.5px solid #18181b', padding: '3px 10px', borderRadius: '6px', boxShadow: '1.5px 1.5px 0px #18181b' }}>
                                 <Send size={13} /> Ofertar
                               </button>
                             )}
@@ -638,14 +675,14 @@ export const TransfersTab: React.FC = () => {
 
       {/* SUB-TAB 3: ACTIVE NEGOTIATIONS */}
       {activeSubTab === 'NEGOTIATIONS' && (
-        <div className="card" style={{ padding: '1.5rem', borderRadius: '14px' }}>
-          <h3 style={{ fontSize: '1.15rem', marginBottom: '1.25rem', display: 'flex', alignItems: 'center', gap: '8px', color: '#f8fafc' }}>
-            <ArrowLeftRight size={20} className="text-primary" />
+        <div className="card" style={{ background: '#ffffff', border: '2px solid #18181b', padding: '1.5rem', borderRadius: '14px', boxShadow: '2.5px 3px 0px #18181b' }}>
+          <h3 style={{ fontSize: '1.15rem', marginBottom: '1.25rem', display: 'flex', alignItems: 'center', gap: '8px', color: '#18181b', fontFamily: "'Kalam', cursive", fontWeight: 800 }}>
+            <ArrowLeftRight size={20} color="#2563eb" />
             Propuestas y Ofertas en Curso ({proposals.length})
           </h3>
 
           {proposals.length === 0 ? (
-            <div className="no-data" style={{ padding: '3.5rem 1rem', textAlign: 'center', color: '#94a3b8' }}>
+            <div className="no-data" style={{ padding: '3.5rem 1rem', textAlign: 'center', color: '#52525b', fontFamily: "'Patrick Hand', cursive" }}>
               No tienes ofertas ni negociaciones pendientes en este momento. Explora el mercado global o consulta el despacho del DT para iniciar conversaciones.
             </div>
           ) : (
@@ -687,28 +724,28 @@ export const TransfersTab: React.FC = () => {
                     <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap', marginTop: '1rem' }}>
                       {isIncoming ? (
                         <>
-                          <button className="btn btn-primary btn-sm" onClick={() => respondToIncomingOffer(prop.id, 'ACCEPT')} style={{ fontWeight: 700 }}>
+                          <button className="btn btn-primary btn-sm" onClick={() => respondToIncomingOffer(prop.id, 'ACCEPT')} style={{ fontWeight: 800, background: '#22c55e', color: '#ffffff', border: '1.5px solid #18181b' }}>
                             <Check size={15} /> Aceptar Oferta (€{formatCurr(prop.transferFee)})
                           </button>
                           <button className="btn btn-outline btn-sm" onClick={() => {
                             setCounterProposalId(prop.id);
                             setCounterFeeInput(Math.round(prop.transferFee * 1.15));
-                          }}>
+                          }} style={{ fontWeight: 800, background: '#ffffff', color: '#18181b', border: '1.5px solid #18181b' }}>
                             Contraofertar
                           </button>
-                          <button className="btn btn-danger btn-sm" onClick={() => respondToIncomingOffer(prop.id, 'REJECT')}>
+                          <button className="btn btn-danger btn-sm" onClick={() => respondToIncomingOffer(prop.id, 'REJECT')} style={{ fontWeight: 800, background: '#ef4444', color: '#ffffff', border: '1.5px solid #18181b' }}>
                             <X size={15} /> Rechazar
                           </button>
                         </>
                       ) : (
                         <>
-                          <button className="btn btn-primary btn-sm" onClick={() => approveProposal(prop.id)} style={{ fontWeight: 700 }}>
+                          <button className="btn btn-primary btn-sm" onClick={() => approveProposal(prop.id)} style={{ fontWeight: 800, background: '#fef08a', color: '#18181b', border: '1.5px solid #18181b' }}>
                             <CheckCircle size={15} /> Aprobar Operación
                           </button>
-                          <button className="btn btn-outline btn-sm" onClick={() => renegotiateProposal(prop.id)}>
+                          <button className="btn btn-outline btn-sm" onClick={() => renegotiateProposal(prop.id)} style={{ fontWeight: 800, background: '#ffffff', color: '#18181b', border: '1.5px solid #18181b' }}>
                             <RefreshCw size={15} /> Pedir al DT que Renegocie
                           </button>
-                          <button className="btn btn-danger btn-sm" onClick={() => rejectProposal(prop.id)}>
+                          <button className="btn btn-danger btn-sm" onClick={() => rejectProposal(prop.id)} style={{ fontWeight: 800, background: '#ef4444', color: '#ffffff', border: '1.5px solid #18181b' }}>
                             <XCircle size={15} /> Descartar
                           </button>
                         </>
@@ -717,22 +754,22 @@ export const TransfersTab: React.FC = () => {
 
                     {/* Counter offer inline form */}
                     {counterProposalId === prop.id && (
-                      <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px dashed rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
-                        <span style={{ fontSize: '0.85rem' }}>Exigir Precio de Venta:</span>
+                      <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1.5px dashed #18181b', display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+                        <span style={{ fontSize: '0.85rem', color: '#18181b', fontWeight: 800 }}>Exigir Precio de Venta:</span>
                         <input
                           type="number"
                           value={counterFeeInput}
                           onChange={e => setCounterFeeInput(Number(e.target.value))}
                           className="search-input"
-                          style={{ width: '160px' }}
+                          style={{ width: '160px', border: '1.5px solid #18181b', borderRadius: '8px', padding: '0.4rem 0.75rem', fontWeight: 700, color: '#18181b' }}
                         />
                         <button className="btn btn-primary btn-sm" onClick={() => {
                           respondToIncomingOffer(prop.id, 'COUNTER', counterFeeInput);
                           setCounterProposalId(null);
-                        }}>
+                        }} style={{ fontWeight: 800, background: '#2563eb', color: '#ffffff', border: '1.5px solid #18181b' }}>
                           Enviar Contraoferta
                         </button>
-                        <button className="btn btn-outline btn-sm" onClick={() => setCounterProposalId(null)}>
+                        <button className="btn btn-outline btn-sm" onClick={() => setCounterProposalId(null)} style={{ fontWeight: 800, background: '#ffffff', color: '#18181b', border: '1.5px solid #18181b' }}>
                           Cancelar
                         </button>
                       </div>
@@ -749,41 +786,41 @@ export const TransfersTab: React.FC = () => {
       {activeSubTab === 'TRANSFER_LIST' && (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
           {/* TRANSFER LISTED PLAYERS CARD */}
-          <div className="card" style={{ padding: '1.5rem', borderRadius: '14px' }}>
-            <h3 style={{ fontSize: '1.15rem', marginBottom: '1.25rem', display: 'flex', alignItems: 'center', gap: '8px', color: '#f8fafc' }}>
-              <Tag size={20} className="text-primary" />
+          <div className="card" style={{ background: '#ffffff', border: '2px solid #18181b', padding: '1.5rem', borderRadius: '14px', boxShadow: '2.5px 3px 0px #18181b' }}>
+            <h3 style={{ fontSize: '1.15rem', marginBottom: '1.25rem', display: 'flex', alignItems: 'center', gap: '8px', color: '#18181b', fontFamily: "'Kalam', cursive", fontWeight: 800 }}>
+              <Tag size={20} color="#2563eb" />
               Jugadores en la Lista de Transferibles del Club ({transferListedSquad.length})
             </h3>
 
             {transferListedSquad.length === 0 ? (
-              <div className="no-data" style={{ padding: '2.5rem', textAlign: 'center', color: '#94a3b8' }}>
+              <div className="no-data" style={{ padding: '2.5rem', textAlign: 'center', color: '#52525b', fontFamily: "'Patrick Hand', cursive" }}>
                 No has colocado a ningún jugador en la lista de transferibles. Selecciona un futbolista de tu plantilla más abajo para ponerlo a la venta.
               </div>
             ) : (
               <div className="table-responsive">
-                <table className="data-table">
+                <table className="data-table" style={{ width: '100%', borderCollapse: 'collapse' }}>
                   <thead>
-                    <tr>
-                      <th>Jugador</th>
-                      <th>Pos</th>
-                      <th>Edad</th>
-                      <th>OVR</th>
-                      <th>Valor de Mercado</th>
-                      <th>Precio Solicitado</th>
-                      <th>Acción</th>
+                    <tr style={{ background: '#faf7f2', borderBottom: '1.5px solid #18181b' }}>
+                      <th style={{ color: '#18181b', fontWeight: 800, padding: '0.65rem 0.85rem', textAlign: 'left' }}>Jugador</th>
+                      <th style={{ color: '#18181b', fontWeight: 800, padding: '0.65rem 0.85rem', textAlign: 'left' }}>Pos</th>
+                      <th style={{ color: '#18181b', fontWeight: 800, padding: '0.65rem 0.85rem', textAlign: 'left' }}>Edad</th>
+                      <th style={{ color: '#18181b', fontWeight: 800, padding: '0.65rem 0.85rem', textAlign: 'left' }}>OVR</th>
+                      <th style={{ color: '#18181b', fontWeight: 800, padding: '0.65rem 0.85rem', textAlign: 'left' }}>Valor de Mercado</th>
+                      <th style={{ color: '#18181b', fontWeight: 800, padding: '0.65rem 0.85rem', textAlign: 'left' }}>Precio Solicitado</th>
+                      <th style={{ color: '#18181b', fontWeight: 800, padding: '0.65rem 0.85rem', textAlign: 'left' }}>Acción</th>
                     </tr>
                   </thead>
                   <tbody>
                     {transferListedSquad.map(player => (
-                      <tr key={player.id}>
-                        <td><strong style={{ color: '#f8fafc' }}>{player.name}</strong></td>
-                        <td>{renderPositionBadge(player.position)}</td>
-                        <td>{player.age}</td>
-                        <td>{renderOvrBadge(player.ovr)}</td>
-                        <td>{formatCurr(player.value)}</td>
-                        <td><strong style={{ color: '#60a5fa', fontSize: '0.95rem' }}>{formatCurr(player.askingPrice || player.value)}</strong></td>
-                        <td>
-                          <button className="btn btn-outline btn-sm" onClick={() => removeFromTransferList(player.id)}>
+                      <tr key={player.id} style={{ borderBottom: '1px solid #e4e4e7' }}>
+                        <td style={{ padding: '0.6rem 0.85rem' }}><strong style={{ color: '#18181b', fontFamily: "'Kalam', cursive", fontWeight: 800 }}>{player.name}</strong></td>
+                        <td style={{ padding: '0.6rem 0.85rem' }}>{renderPositionBadge(player.position)}</td>
+                        <td style={{ color: '#18181b', fontWeight: 700, padding: '0.6rem 0.85rem' }}>{player.age}</td>
+                        <td style={{ padding: '0.6rem 0.85rem' }}>{renderOvrBadge(player.ovr)}</td>
+                        <td style={{ color: '#18181b', fontWeight: 700, padding: '0.6rem 0.85rem' }}>{formatCurr(player.value)}</td>
+                        <td style={{ padding: '0.6rem 0.85rem' }}><strong style={{ color: '#2563eb', fontSize: '0.95rem', fontFamily: "'Kalam', cursive" }}>{formatCurr(player.askingPrice || player.value)}</strong></td>
+                        <td style={{ padding: '0.6rem 0.85rem' }}>
+                          <button className="btn btn-outline btn-sm" onClick={() => removeFromTransferList(player.id)} style={{ fontWeight: 800, background: '#ffffff', color: '#18181b', border: '1.5px solid #18181b' }}>
                             Retirar de Venta
                           </button>
                         </td>
@@ -796,37 +833,37 @@ export const TransfersTab: React.FC = () => {
           </div>
 
           {/* SQUAD PLAYERS LIST TO PUT ON SALE */}
-          <div className="card" style={{ padding: '1.5rem', borderRadius: '14px' }}>
-            <h3 style={{ fontSize: '1.15rem', marginBottom: '1.25rem', color: '#f8fafc' }}>
+          <div className="card" style={{ background: '#ffffff', border: '2px solid #18181b', padding: '1.5rem', borderRadius: '14px', boxShadow: '2.5px 3px 0px #18181b' }}>
+            <h3 style={{ fontSize: '1.15rem', marginBottom: '1.25rem', color: '#18181b', fontFamily: "'Kalam', cursive", fontWeight: 800 }}>
               Poner Futbolistas de tu Plantilla a la Venta
             </h3>
 
             <div className="table-responsive max-h-400">
-              <table className="data-table">
+              <table className="data-table" style={{ width: '100%', borderCollapse: 'collapse' }}>
                 <thead>
-                  <tr>
-                    <th>Jugador</th>
-                    <th>Pos</th>
-                    <th>Edad</th>
-                    <th>OVR</th>
-                    <th>Valor</th>
-                    <th>Sueldo</th>
-                    <th>Contrato</th>
-                    <th>Acción</th>
+                  <tr style={{ background: '#faf7f2', borderBottom: '1.5px solid #18181b' }}>
+                    <th style={{ color: '#18181b', fontWeight: 800, padding: '0.65rem 0.85rem', textAlign: 'left' }}>Jugador</th>
+                    <th style={{ color: '#18181b', fontWeight: 800, padding: '0.65rem 0.85rem', textAlign: 'left' }}>Pos</th>
+                    <th style={{ color: '#18181b', fontWeight: 800, padding: '0.65rem 0.85rem', textAlign: 'left' }}>Edad</th>
+                    <th style={{ color: '#18181b', fontWeight: 800, padding: '0.65rem 0.85rem', textAlign: 'left' }}>OVR</th>
+                    <th style={{ color: '#18181b', fontWeight: 800, padding: '0.65rem 0.85rem', textAlign: 'left' }}>Valor</th>
+                    <th style={{ color: '#18181b', fontWeight: 800, padding: '0.65rem 0.85rem', textAlign: 'left' }}>Sueldo</th>
+                    <th style={{ color: '#18181b', fontWeight: 800, padding: '0.65rem 0.85rem', textAlign: 'left' }}>Contrato</th>
+                    <th style={{ color: '#18181b', fontWeight: 800, padding: '0.65rem 0.85rem', textAlign: 'left' }}>Acción</th>
                   </tr>
                 </thead>
                 <tbody>
                   {squad.filter(p => !p.isTransferListed).map(player => (
-                    <tr key={player.id}>
-                      <td><strong style={{ color: '#f8fafc' }}>{player.name}</strong></td>
-                      <td>{renderPositionBadge(player.position)}</td>
-                      <td>{player.age}</td>
-                      <td>{renderOvrBadge(player.ovr)}</td>
-                      <td>{formatCurr(player.value)}</td>
-                      <td>{formatCurr(player.salary)}/año</td>
-                      <td>{player.contractYears} {player.contractYears === 1 ? 'año' : 'años'}</td>
-                      <td>
-                        <button className="btn btn-primary btn-sm" onClick={() => handleOpenSaleModal(player)} style={{ fontWeight: 700 }}>
+                    <tr key={player.id} style={{ borderBottom: '1px solid #e4e4e7' }}>
+                      <td style={{ padding: '0.6rem 0.85rem' }}><strong style={{ color: '#18181b', fontFamily: "'Kalam', cursive", fontWeight: 800 }}>{player.name}</strong></td>
+                      <td style={{ padding: '0.6rem 0.85rem' }}>{renderPositionBadge(player.position)}</td>
+                      <td style={{ color: '#18181b', fontWeight: 700, padding: '0.6rem 0.85rem' }}>{player.age}</td>
+                      <td style={{ padding: '0.6rem 0.85rem' }}>{renderOvrBadge(player.ovr)}</td>
+                      <td style={{ color: '#18181b', fontWeight: 700, padding: '0.6rem 0.85rem' }}>{formatCurr(player.value)}</td>
+                      <td style={{ color: '#18181b', fontWeight: 700, padding: '0.6rem 0.85rem' }}>{formatCurr(player.salary)}/año</td>
+                      <td style={{ color: '#18181b', fontWeight: 700, padding: '0.6rem 0.85rem' }}>{player.contractYears} {player.contractYears === 1 ? 'año' : 'años'}</td>
+                      <td style={{ padding: '0.6rem 0.85rem' }}>
+                        <button className="btn btn-primary btn-sm" onClick={() => handleOpenSaleModal(player)} style={{ fontWeight: 800, background: '#fef08a', color: '#18181b', border: '1.5px solid #18181b', padding: '3px 10px', borderRadius: '6px', boxShadow: '1.5px 1.5px 0px #18181b' }}>
                           Poner a la Venta
                         </button>
                       </td>
@@ -842,23 +879,23 @@ export const TransfersTab: React.FC = () => {
       {/* MODAL: CUSTOM TRANSFER OFFER */}
       {selectedPlayerForOffer && (
         <div className="modal-backdrop">
-          <div className="modal-card" style={{ maxWidth: '540px', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: '16px', boxShadow: '0 20px 60px rgba(0,0,0,0.5)' }}>
-            <div className="modal-header">
-              <h3 style={{ color: '#f8fafc', fontSize: '1.2rem' }}>Negociar Fichaje: {selectedPlayerForOffer.name}</h3>
-              <button className="close-btn" onClick={() => setSelectedPlayerForOffer(null)}>×</button>
+          <div className="modal-card" style={{ maxWidth: '540px', background: '#ffffff', border: '2.5px solid #18181b', borderRadius: '16px', boxShadow: '4px 6px 0px #18181b' }}>
+            <div className="modal-header" style={{ borderBottom: '2px solid #18181b', paddingBottom: '0.75rem' }}>
+              <h3 style={{ color: '#18181b', fontSize: '1.2rem', fontFamily: "'Kalam', cursive", fontWeight: 800 }}>Negociar Fichaje: {selectedPlayerForOffer.name}</h3>
+              <button className="close-btn" onClick={() => setSelectedPlayerForOffer(null)} style={{ color: '#18181b', fontWeight: 800 }}>×</button>
             </div>
 
-            <form onSubmit={handleSendCustomOffer} style={{ padding: '1rem 0' }}>
-              <div style={{ background: 'rgba(15, 23, 42, 0.6)', border: '1px solid rgba(255,255,255,0.08)', padding: '14px', borderRadius: '10px', marginBottom: '1.25rem' }}>
+            <form onSubmit={handleSendCustomOffer} style={{ padding: '1rem 0 0 0' }}>
+              <div style={{ background: '#fef08a', border: '1.5px solid #18181b', padding: '14px', borderRadius: '10px', marginBottom: '1.25rem' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                     {renderPositionBadge(selectedPlayerForOffer.position)}
-                    <span style={{ color: '#f8fafc', fontWeight: 600 }}>{selectedPlayerForOffer.age} años</span>
+                    <span style={{ color: '#18181b', fontWeight: 800 }}>{selectedPlayerForOffer.age} años</span>
                   </div>
                   {renderOvrBadge(selectedPlayerForOffer.ovr)}
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', color: '#94a3b8' }}>
-                  <span>Valor de traspaso: {selectedPlayerForOffer.clubId === '' ? <strong style={{ color: '#34d399' }}>€0 (Libre)</strong> : formatCurr(selectedPlayerForOffer.value)}</span>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.85rem', color: '#18181b', fontWeight: 700 }}>
+                  <span>Valor de traspaso: {selectedPlayerForOffer.clubId === '' ? <strong style={{ color: '#15803d' }}>€0 (Libre)</strong> : formatCurr(selectedPlayerForOffer.value)}</span>
                   <span>Ficha actual: {formatCurr(selectedPlayerForOffer.salary)}/año</span>
                 </div>
               </div>
@@ -866,37 +903,37 @@ export const TransfersTab: React.FC = () => {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
                 {selectedPlayerForOffer.clubId !== '' && (
                   <div>
-                    <label style={{ fontSize: '0.8rem', color: '#94a3b8', display: 'block', marginBottom: '4px', fontWeight: 600 }}>Oferta Traspaso al Club Vendedor (€)</label>
+                    <label style={{ fontSize: '0.8rem', color: '#52525b', display: 'block', marginBottom: '4px', fontWeight: 800 }}>Oferta Traspaso al Club Vendedor (€)</label>
                     <input
                       type="number"
                       value={offerFee}
                       onChange={e => setOfferFee(Number(e.target.value))}
                       className="search-input"
-                      style={{ width: '100%' }}
+                      style={{ width: '100%', border: '1.5px solid #18181b', borderRadius: '8px', padding: '0.45rem 0.75rem', fontWeight: 700, color: '#18181b' }}
                       required
                     />
                   </div>
                 )}
 
                 <div>
-                  <label style={{ fontSize: '0.8rem', color: '#94a3b8', display: 'block', marginBottom: '4px', fontWeight: 600 }}>Ficha Salarial Anual Ofrecida (€/año)</label>
+                  <label style={{ fontSize: '0.8rem', color: '#52525b', display: 'block', marginBottom: '4px', fontWeight: 800 }}>Ficha Salarial Anual Ofrecida (€/año)</label>
                   <input
                     type="number"
                     value={offerSalary}
                     onChange={e => setOfferSalary(Number(e.target.value))}
                     className="search-input"
-                    style={{ width: '100%' }}
+                    style={{ width: '100%', border: '1.5px solid #18181b', borderRadius: '8px', padding: '0.45rem 0.75rem', fontWeight: 700, color: '#18181b' }}
                     required
                   />
                 </div>
 
                 <div>
-                  <label style={{ fontSize: '0.8rem', color: '#94a3b8', display: 'block', marginBottom: '4px', fontWeight: 600 }}>Duración del Contrato</label>
+                  <label style={{ fontSize: '0.8rem', color: '#52525b', display: 'block', marginBottom: '4px', fontWeight: 800 }}>Duración del Contrato</label>
                   <select
                     value={offerYears}
                     onChange={e => setOfferYears(Number(e.target.value))}
                     className="search-input"
-                    style={{ width: '100%', background: 'var(--bg-input)' }}
+                    style={{ width: '100%', background: '#ffffff', border: '1.5px solid #18181b', borderRadius: '8px', padding: '0.45rem 0.75rem', fontWeight: 700, color: '#18181b' }}
                   >
                     <option value={1}>1 Año</option>
                     <option value={2}>2 Años</option>
@@ -908,8 +945,8 @@ export const TransfersTab: React.FC = () => {
               </div>
 
               <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '1.75rem' }}>
-                <button type="button" className="btn btn-outline" onClick={() => setSelectedPlayerForOffer(null)}>Cancelar</button>
-                <button type="submit" className="btn btn-primary" style={{ fontWeight: 700 }}>Enviar Oferta de Fichaje</button>
+                <button type="button" className="btn btn-outline" onClick={() => setSelectedPlayerForOffer(null)} style={{ fontWeight: 800, background: '#ffffff', color: '#18181b', border: '1.5px solid #18181b' }}>Cancelar</button>
+                <button type="submit" className="btn btn-primary" style={{ fontWeight: 800, background: '#2563eb', color: '#ffffff', border: '1.5px solid #18181b' }}>Enviar Oferta de Fichaje</button>
               </div>
             </form>
           </div>
@@ -919,32 +956,32 @@ export const TransfersTab: React.FC = () => {
       {/* MODAL: PUT PLAYER ON SALE */}
       {selectedPlayerForSale && (
         <div className="modal-backdrop">
-          <div className="modal-card" style={{ maxWidth: '460px', background: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: '16px', boxShadow: '0 20px 60px rgba(0,0,0,0.5)' }}>
-            <div className="modal-header">
-              <h3 style={{ color: '#f8fafc', fontSize: '1.2rem' }}>Poner a la Venta: {selectedPlayerForSale.name}</h3>
-              <button className="close-btn" onClick={() => setSelectedPlayerForSale(null)}>×</button>
+          <div className="modal-card" style={{ maxWidth: '460px', background: '#ffffff', border: '2.5px solid #18181b', borderRadius: '16px', boxShadow: '4px 6px 0px #18181b' }}>
+            <div className="modal-header" style={{ borderBottom: '2px solid #18181b', paddingBottom: '0.75rem' }}>
+              <h3 style={{ color: '#18181b', fontSize: '1.2rem', fontFamily: "'Kalam', cursive", fontWeight: 800 }}>Poner a la Venta: {selectedPlayerForSale.name}</h3>
+              <button className="close-btn" onClick={() => setSelectedPlayerForSale(null)} style={{ color: '#18181b', fontWeight: 800 }}>×</button>
             </div>
 
-            <form onSubmit={handleConfirmListForSale} style={{ padding: '1rem 0' }}>
-              <p style={{ fontSize: '0.9rem', color: '#cbd5e1', lineHeight: 1.4 }}>
+            <form onSubmit={handleConfirmListForSale} style={{ padding: '1rem 0 0 0' }}>
+              <p style={{ fontSize: '0.9rem', color: '#3f3f46', lineHeight: 1.4, fontFamily: "'Patrick Hand', cursive" }}>
                 Define el precio que solicitas por {selectedPlayerForSale.name} ({selectedPlayerForSale.position}, {selectedPlayerForSale.ovr} OVR). Los clubes interesados enviarán ofertas semanales en el mercado.
               </p>
 
               <div style={{ marginTop: '1.25rem' }}>
-                <label style={{ fontSize: '0.8rem', color: '#94a3b8', display: 'block', marginBottom: '6px', fontWeight: 600 }}>Precio de Salida Solicitado (€)</label>
+                <label style={{ fontSize: '0.8rem', color: '#52525b', display: 'block', marginBottom: '6px', fontWeight: 800 }}>Precio de Salida Solicitado (€)</label>
                 <input
                   type="number"
                   value={askingPriceInput}
                   onChange={e => setAskingPriceInput(Number(e.target.value))}
                   className="search-input"
-                  style={{ width: '100%' }}
+                  style={{ width: '100%', border: '1.5px solid #18181b', borderRadius: '8px', padding: '0.45rem 0.75rem', fontWeight: 700, color: '#18181b' }}
                   required
                 />
               </div>
 
               <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', marginTop: '1.75rem' }}>
-                <button type="button" className="btn btn-outline" onClick={() => setSelectedPlayerForSale(null)}>Cancelar</button>
-                <button type="submit" className="btn btn-primary" style={{ fontWeight: 700 }}>Confirmar Lista de Venta</button>
+                <button type="button" className="btn btn-outline" onClick={() => setSelectedPlayerForSale(null)} style={{ fontWeight: 800, background: '#ffffff', color: '#18181b', border: '1.5px solid #18181b' }}>Cancelar</button>
+                <button type="submit" className="btn btn-primary" style={{ fontWeight: 800, background: '#2563eb', color: '#ffffff', border: '1.5px solid #18181b' }}>Confirmar Lista de Venta</button>
               </div>
             </form>
           </div>
