@@ -1933,25 +1933,17 @@ body {
 }
 
 .squad-header-card {
-  background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.9) 100%);
-  border: 1px solid var(--border-color);
+  background: #ffffff;
+  border: 2px solid #18181b;
   border-radius: var(--radius-lg);
   padding: 1.25rem 1.5rem;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(12px);
+  box-shadow: 2.5px 3px 0px #18181b;
   position: relative;
   overflow: hidden;
 }
 
 .squad-header-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 300px;
-  height: 100%;
-  background: radial-gradient(circle at 100% 0%, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
-  pointer-events: none;
+  display: none;
 }
 
 .squad-header-content {
@@ -1970,40 +1962,44 @@ body {
 }
 
 .squad-icon-badge {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-  color: #ffffff;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: #facc15;
+  border: 2px solid #18181b;
+  color: #18181b;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+  box-shadow: 2px 2px 0px #18181b;
 }
 
 .squad-title-area h2 {
   font-family: var(--font-heading);
   font-size: 1.45rem;
   font-weight: 800;
-  color: #ffffff;
+  color: #18181b;
   margin: 0 0 2px 0;
   letter-spacing: -0.3px;
 }
 
 .squad-title-area p {
-  color: #94a3b8;
+  color: #52525b;
   font-size: 0.84rem;
   margin: 0;
+  font-family: var(--font-main);
 }
 
 .squad-count-chip {
-  background: rgba(37, 99, 235, 0.15);
-  border: 1px solid rgba(37, 99, 235, 0.3);
-  color: #60a5fa;
-  font-weight: 700;
+  background: #fef08a;
+  border: 1.5px solid #18181b;
+  color: #18181b;
+  font-weight: 800;
   font-size: 0.82rem;
   padding: 0.4rem 0.9rem;
   border-radius: 20px;
+  box-shadow: 1.5px 1.5px 0px #18181b;
+  font-family: var(--font-heading);
 }
 
 /* KPI Grid */
@@ -2177,26 +2173,24 @@ body {
   border: 1.5px solid #18181b;
   border-radius: var(--radius-md);
   color: #18181b;
-  font-size: 0.88rem;
   font-family: var(--font-main);
   font-weight: 700;
   font-size: 0.83rem;
-  font-weight: 600;
   cursor: pointer;
 }
 
 .toolbar-select:focus {
   outline: none;
-  border-color: #3b82f6;
+  border-color: #2563eb;
 }
 
 .view-mode-toggle {
   display: flex;
-  background: rgba(15, 23, 42, 0.8);
-  border: 1px solid var(--border-color);
+  background: #ffffff;
+  border: 1.5px solid #18181b;
   border-radius: var(--radius-md);
-  padding: 3px;
-  gap: 3px;
+  padding: 2px;
+  gap: 2px;
 }
 
 .btn-toggle-view {
@@ -2204,56 +2198,65 @@ body {
   align-items: center;
   gap: 0.4rem;
   padding: 0.4rem 0.75rem;
-  border: none;
+  border: 1px solid transparent;
   background: transparent;
-  color: #64748b;
+  color: #52525b;
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 800;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.12s ease;
+  font-family: var(--font-main);
 }
 
 .btn-toggle-view.active {
   background: #2563eb;
   color: #ffffff;
-  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+  border: 1px solid #18181b;
+  box-shadow: 1.5px 1.5px 0px #18181b;
 }
 
 /* Table Styling */
 .squad-table-container {
   padding: 0.4rem;
   overflow-x: auto;
+  background: #ffffff;
+  border: 2px solid #18181b;
+  box-shadow: 2.5px 3px 0px #18181b;
+  border-radius: var(--radius-lg);
 }
 
 .squad-data-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.82rem;
+  font-size: 0.85rem;
 }
 
 .squad-data-table th {
-  padding: 0.55rem 0.55rem;
+  padding: 0.65rem 0.65rem;
   text-align: left;
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   font-weight: 800;
-  color: #64748b;
+  color: #18181b;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  border-bottom: 1px solid var(--border-color);
-  background: rgba(15, 23, 42, 0.4);
+  border-bottom: 2px solid #18181b;
+  background: #fef08a;
   white-space: nowrap;
+  font-family: var(--font-heading);
 }
 
 .squad-data-table td {
-  padding: 0.45rem 0.55rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 0.5rem 0.65rem;
+  border-bottom: 1px solid #e4e4e7;
   vertical-align: middle;
   white-space: nowrap;
+  color: #18181b;
+  font-weight: 700;
 }
 
 .squad-row-hover:hover {
-  background: rgba(30, 41, 59, 0.5);
+  background: #fef9c3;
 }
 
 /* Player Cell */
@@ -2446,21 +2449,20 @@ body {
 }
 
 .player-card-fut {
-  background: linear-gradient(145deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.85) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
+  background: #ffffff;
+  border: 2px solid #18181b;
+  border-radius: 14px;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   position: relative;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  transition: all 0.25s ease;
+  box-shadow: 2.5px 3px 0px #18181b;
+  transition: all 0.12s ease;
 }
 
 .player-card-fut:hover {
-  transform: translateY(-4px);
-  border-color: rgba(59, 130, 246, 0.5);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+  transform: translateY(-2px);
+  background: #fef9c3;
 }
 
 .fut-card-header {
@@ -2474,7 +2476,7 @@ body {
   font-family: var(--font-heading);
   font-size: 1.35rem;
   font-weight: 900;
-  color: #ffffff;
+  color: #18181b;
 }
 
 .fut-card-avatar {
@@ -2487,14 +2489,15 @@ body {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-  border: 2px solid rgba(255, 255, 255, 0.15);
+  background: #fef08a;
+  border: 2px solid #18181b;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.1rem;
   font-weight: 800;
-  color: #ffffff;
+  color: #18181b;
+  box-shadow: 1.5px 1.5px 0px #18181b;
 }
 
 .fut-card-info {
@@ -2504,9 +2507,9 @@ body {
 
 .fut-name {
   font-family: var(--font-heading);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 800;
-  color: #ffffff;
+  color: #18181b;
   margin: 0 0 0.25rem 0;
   white-space: nowrap;
   overflow: hidden;
@@ -2515,20 +2518,23 @@ body {
 
 .fut-youth-chip {
   font-size: 0.65rem;
-  color: #34d399;
-  background: rgba(16, 185, 129, 0.15);
+  color: #15803d;
+  background: #dcfce7;
+  border: 1px solid #18181b;
   padding: 1px 6px;
   border-radius: 10px;
   display: inline-flex;
   align-items: center;
   gap: 3px;
   margin-bottom: 0.5rem;
+  font-weight: 800;
 }
 
 .fut-stats-row {
   display: flex;
   justify-content: space-around;
-  background: rgba(15, 23, 42, 0.6);
+  background: #fef08a;
+  border: 1.5px solid #18181b;
   border-radius: 8px;
   padding: 0.4rem;
   margin-bottom: 0.6rem;
@@ -2542,14 +2548,14 @@ body {
 
 .fut-stat-label {
   font-size: 0.6rem;
-  color: #64748b;
+  color: #52525b;
   font-weight: 800;
 }
 
 .fut-stat-val {
   font-size: 0.78rem;
   font-weight: 800;
-  color: #ffffff;
+  color: #18181b;
 }
 
 .fut-financials {
@@ -2841,41 +2847,41 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
+  background: #ffffff;
+  border: 2px solid #18181b;
   padding: 0.5rem;
   border-radius: var(--radius-lg);
   overflow-x: auto;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 2.5px 3px 0px #18181b;
 }
 
 .league-subnav-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  padding: 0.6rem 1.1rem;
+  padding: 0.55rem 1.1rem;
   border-radius: var(--radius-md);
   font-family: var(--font-main);
-  font-size: 0.86rem;
-  font-weight: 700;
-  color: var(--text-secondary);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #52525b;
   background: transparent;
-  border: 1px solid transparent;
+  border: 1.5px solid transparent;
   cursor: pointer;
   white-space: nowrap;
-  transition: all 0.2s ease;
+  transition: all 0.12s ease;
 }
 
 .league-subnav-btn:hover {
-  color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.04);
+  color: #18181b;
+  background: #fef9c3;
 }
 
 .league-subnav-btn.active {
   color: #ffffff;
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-  border-color: #3b82f6;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+  background: #2563eb;
+  border-color: #18181b;
+  box-shadow: 1.5px 2px 0px #18181b;
 }
 
 /* CALENDARIO INTERACTIVO "MÁS CALENDARIO" */
@@ -2890,20 +2896,21 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
+  background: #ffffff;
+  border: 2px solid #18181b;
   border-radius: var(--radius-lg);
   padding: 0.85rem 1.25rem;
   flex-wrap: wrap;
+  box-shadow: 2.5px 3px 0px #18181b;
 }
 
 .calendar-view-toggle {
   display: flex;
-  background: rgba(15, 23, 42, 0.8);
-  border: 1px solid var(--border-color);
+  background: #ffffff;
+  border: 1.5px solid #18181b;
   border-radius: var(--radius-md);
-  padding: 3px;
-  gap: 3px;
+  padding: 2px;
+  gap: 2px;
 }
 
 .calendar-view-btn {
@@ -2913,18 +2920,20 @@ body {
   padding: 0.4rem 0.85rem;
   border-radius: 6px;
   font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--text-secondary);
+  font-weight: 800;
+  color: #52525b;
   background: transparent;
-  border: none;
+  border: 1px solid transparent;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.12s ease;
+  font-family: var(--font-main);
 }
 
 .calendar-view-btn.active {
   background: #2563eb;
   color: #ffffff;
-  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+  border: 1px solid #18181b;
+  box-shadow: 1.5px 1.5px 0px #18181b;
 }
 
 /* Grid Mensual */
@@ -2932,48 +2941,50 @@ body {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 0.5rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
+  background: #ffffff;
+  border: 2px solid #18181b;
   border-radius: var(--radius-lg);
   padding: 1rem;
+  box-shadow: 2.5px 3px 0px #18181b;
 }
 
 .calendar-weekday-header {
   text-align: center;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 800;
-  color: var(--text-muted);
+  color: #18181b;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   padding-bottom: 0.5rem;
+  font-family: var(--font-heading);
 }
 
 .calendar-day-tile {
-  background: rgba(15, 23, 42, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: #faf7f2;
+  border: 1.5px solid #18181b;
   border-radius: var(--radius-md);
   min-height: 85px;
   padding: 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: all 0.2s ease;
+  transition: all 0.12s ease;
 }
 
 .calendar-day-tile:hover {
-  border-color: rgba(59, 130, 246, 0.4);
-  background: rgba(30, 41, 59, 0.6);
+  background: #fef9c3;
 }
 
 .calendar-day-tile.is-today {
-  border: 2px solid #3b82f6;
-  box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+  border: 2.5px solid #2563eb;
+  background: #eff6ff;
+  box-shadow: 2px 2px 0px #18181b;
 }
 
 .calendar-day-num {
   font-size: 0.78rem;
   font-weight: 800;
-  color: var(--text-secondary);
+  color: #18181b;
 }
 
 .calendar-match-badge {
